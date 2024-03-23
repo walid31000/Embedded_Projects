@@ -1,0 +1,43 @@
+18:14:09 **** Incremental Build of configuration Debug for project seg ****
+make all 
+In file included from ../main.c:9:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:11: warning: return type of 'main' is not 'int'
+../main.c: In function 'main':
+../main.c:17: warning: unused variable 'j'
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: seg.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,seg.map -mmcu=atmega32 -o "seg.elf"  ./DIO_prog.o ./PORT_prog.o ./main.o   
+Finished building target: seg.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S seg.elf  >"seg.lss"
+Finished building: seg.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex seg.elf  "seg.hex"
+Finished building: seg.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 seg.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5740 bytes (17.5% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:14:18 Build Finished (took 8s.678ms)
+

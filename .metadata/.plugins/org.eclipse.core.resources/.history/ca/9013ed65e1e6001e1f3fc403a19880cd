@@ -1,0 +1,27 @@
+/*
+ * CLCD_app1.c
+ *description:application that send string to LCD
+ *  Created on: 19 Mar 2024
+ *      Author: walid
+ */
+
+#include "STD_TYPES.h"
+#include "Err_Type.h"
+#include "BIT_MATH.h"
+#include <util/delay.h>
+
+#include "DIO_interface.h"
+#include "CLCD_interface.h"
+
+
+void main(void)
+{
+	 //uint8 *name="walid";
+
+ CLCD_u8endString("walid");
+while(1)
+{
+
+}
+
+}

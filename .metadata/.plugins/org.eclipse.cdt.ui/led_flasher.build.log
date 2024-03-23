@@ -1,0 +1,41 @@
+16:38:52 **** Incremental Build of configuration Debug for project led_flasher ****
+make all 
+Building file: ../shift_left.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"shift_left.d" -MT"shift_left.o" -c -o "shift_left.o" "../shift_left.c"
+In file included from ../shift_left.c:10:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../shift_left.c:15: warning: return type of 'main' is not 'int'
+Finished building: ../shift_left.c
+ 
+Building target: led_flasher.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,led_flasher.map -mmcu=atmega32 -o "led_flasher.elf"  ./shift_left.o   
+Finished building target: led_flasher.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S led_flasher.elf  >"led_flasher.lss"
+Finished building: led_flasher.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex led_flasher.elf  "led_flasher.hex"
+Finished building: led_flasher.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 led_flasher.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3588 bytes (10.9% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:38:55 Build Finished (took 2s.64ms)
+

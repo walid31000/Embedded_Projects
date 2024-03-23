@@ -1,0 +1,127 @@
+#include "STD_TYPES.h"
+#include <util/delay.h>
+#include "BIT_MATH.h"
+#include "Err_Type.h"
+
+#include "DIO_interface.h"
+#include "CLCD_interface.h"
+#include "CLCD_prv.h"
+#include "CLCD_cfg.h"
+
+
+void CLCD_voidSendCommand(uint8 copy_u8Command)
+{
+	/*1-SET RS pin to low for command*/
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RS_PIN,DIO_PIN_LOW);
+
+	/*2-SET RW pin to low for write*/
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RW_PIN,DIO_PIN_LOW);
+
+	/*3-Send the  command*/
+	DIO_u8SetPortValue(CLCD_u8DATA_PORT, copy_u8Command);
+
+
+	/*4- send Enable pulse*/
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8E_PIN,DIO_PIN_HIGH);
+	_delay_ms(2);
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8E_PIN,DIO_PIN_LOW);
+}
+
+
+void CLCD_voidSendData(uint8 copy_u8Data)
+{
+	/*1-SET RS pin to high for data*/
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RS_PIN,DIO_PIN_HIGH);
+
+	/*2-SET RW pin to low for write*/
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RW_PIN,DIO_PIN_LOW);
+
+	/*3-Send the  data*/
+	DIO_u8SetPortValue(CLCD_u8DATA_PORT, copy_u8Data);
+
+
+	/*4- send Enable pulse*/
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8E_PIN,DIO_PIN_HIGH);
+	_delay_ms(2);
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8E_PIN,DIO_PIN_LOW);
+
+
+}
+void CLCD_voidInit (void)
+{
+	/*1-wait for more than 30sec after power on*/
+	_delay_ms(40);
+
+	/*2-Function Set command:2 lines ,font size :5*7*/
+	CLCD_voidSendCommand(0b00111000);
+	/*3-Display on/off control display on,cursor off,blink off */
+	CLCD_voidSendCommand(0b00001100);
+	/*4-Display clear*/
+	CLCD_voidSendCommand(1);
+
+}
+
+uint8 CLCD_u8SendString(const char *copy_u8String)
+{
+	uint8 Local_u8ErrorState=OK;
+
+	if(copy_u8String!=NULL)
+
+	{
+
+			while(*copy_u8String!='\0')
+			{
+				CLCD_voidSendData(*copy_u8String);
+				copy_u8String++;
+			}
+
+		/*uint8 Local_u8Counter=0u;
+		while(copy_u8String[Local_u8Counter]!='\0')
+		{
+			CLCD_voidSendData(copy_u8String[Local_u8Counter]);
+			Local_u8Counter++;
+		}*/
+	}
+	else
+	{
+		return NULL_PTR;
+	}
+
+ return Local_u8ErrorState;
+
+}
+
+
+void CLCD_voidSendNumber (sint32 copy_s32Number)
+{
+	uint8 Local_u8conter=0,Local_u8Digit;
+	uint8 Temp[20];
+
+	if(copy_s32Number==0)
+	{
+		CLCD_voidSendData('0');
+	}
+	else if(copy_s32Number<0)
+	{
+		CLCD_voidSendData('-');
+		copy_s32Number=copy_s32Number*-1;
+	}
+	else
+	{
+		while (copy_s32Number)
+		{
+			Temp[Local_u8conter++]=copy_s32Number%10+'0';
+
+			copy_s32Number/=10;
+		}
+		//Local_u8conter--;
+		for(;Local_u8conter>=0;Local_u8conter--)
+		{
+			CLCD_voidSendData(Temp[Local_u8conter]);
+			//Local_u8conter--;
+		}
+
+	}
+
+
+}

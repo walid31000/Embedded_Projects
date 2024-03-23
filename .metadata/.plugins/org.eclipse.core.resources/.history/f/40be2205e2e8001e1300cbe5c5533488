@@ -1,0 +1,36 @@
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "Err_TYPE.h"
+#include <util/delay.h>
+#include "DIO_interface.h"
+#include "CLCD_interface.h"
+#include "CLCD_CFG.h"
+#include "CLCD_PRV.h"
+
+
+void CLCD_voidSendCommand(uint8 copy_u8Command)
+{
+	/*1-set RS pin to low for command */
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RS_PIN,DIO_PIN_LOW );
+	/*2-set RW pin to low to write */
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RW_PIN,DIO_PIN_LOW );
+	/*3-send the command*/
+		DIO_u8SetPortValue(CLCD_u8DATA_PORT,copy_u8Command);
+	/*4-send enable pulse*/
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8E_PIN,DIO_PIN_HIGH );
+	_delay_ms(2);
+	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8E_PIN,DIO_PIN_LOW );
+
+
+}
+void CLCD_voidSendData(uint8 copy_u8Data)
+{
+
+
+}
+void CLCD_voidInit(void)
+{
+
+
+
+}

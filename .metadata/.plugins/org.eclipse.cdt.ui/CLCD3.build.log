@@ -1,0 +1,20 @@
+10:18:21 **** Incremental Build of configuration Debug for project CLCD3 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 CLCD3.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   14590 bytes (44.5% Full)
+(.text + .data + .bootloader)
+
+Data:        114 bytes (5.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+10:18:21 Build Finished (took 527ms)
+

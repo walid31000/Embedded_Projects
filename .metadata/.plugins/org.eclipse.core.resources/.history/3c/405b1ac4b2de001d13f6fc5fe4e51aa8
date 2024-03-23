@@ -1,0 +1,15 @@
+/*
+
+ * main.c
+ *
+ *  Created on: 19 Apr 2023
+ *      Author: Oxygen
+ */
+
+#include <avr/io.h>
+int main()
+{
+	DDRA=0xff;
+	PORTA=1;
+}
+

@@ -1,0 +1,164 @@
+
+
+#include "STD_TYPES.h"
+#include <util/delay.h>
+#include "BIT_MATH.h"
+#include "Err_type.h"
+#include "DIO_interface.h"
+#include "DIO_reg.h"
+#include "PORT_interface.h"
+#include "PORT_cfg.h"
+#include "PORT_prv.h"
+#include "PORT_reg.h"
+#include "CLCD_interface.h"
+#include "CLCD_prv.h"
+#include "CLCD_cfg.h"
+
+
+
+void main(void)
+{
+
+	uint8  Local_u8MyPattern[8] ={0b100,0b1110,0b11111,0b100,0b100,0b100,0b100,0};
+	sint8 Local_s32Num1=1;
+	sint8 Local_s32Num2=1;
+	sint8 Local_s8Iterator1=0;
+	char ch_Operation[4]={'+','-','*','/'};
+	uint8 Local_u8Xpos=0;
+	uint8 Local_u8Ypos=1;
+	uint8 Local_DDRAMXPos=0;
+	uint8 Local_u8DDRAMYPos=0;
+	uint8 Local_u8PinUPRead;
+	uint8 Local_u8PinDownRead;
+	uint8 Local_u8PinEnterRead;
+	/*set CLCD pins as output */
+
+	PORT_voidInit();
+	CLCD_voidInit ();
+	//CLCD_voidGoToXY(0u,1u);
+
+
+	// CLCD_u8SendString("BTWA");
+	//CLCD_u8SendString("walid");
+
+
+	CLCD_voidSendNumber(Local_s32Num1);
+	CLCD_voidSendData ('+');
+	CLCD_voidSendNumber(Local_s32Num2);
+
+
+	while(1)
+	{
+
+		CLCD_u8WriteSpecialCharacter(0u,Local_u8MyPattern,Local_u8Xpos,Local_u8Ypos);
+		DIO_u8GetPinValue(CLCD_u8Cal_PORT, CLCD_u8UP_PIN ,&Local_u8PinUPRead);
+		DIO_u8GetPinValue(CLCD_u8Cal_PORT, CLCD_u8DOWN_PIN ,&Local_u8PinDownRead);
+		DIO_u8GetPinValue(CLCD_u8Cal_PORT, CLCD_u8ENTER_PIN ,&Local_u8PinEnterRead);
+		if(Local_u8PinUPRead ==DIO_PIN_LOW)
+		{
+
+			CLCD_voidGoToXY (Local_DDRAMXPos,Local_u8DDRAMYPos);
+			Local_s32Num1++;
+			CLCD_voidSendNumber(Local_s32Num1);
+			_delay_ms(50);
+
+		}
+
+		 if(Local_u8PinDownRead ==DIO_PIN_LOW)
+		{
+			CLCD_voidGoToXY (Local_DDRAMXPos,Local_u8DDRAMYPos);
+			Local_s32Num1--;
+			CLCD_voidSendNumber(Local_s32Num1);
+			_delay_ms(50);
+		}
+
+
+		}
+
+
+		 if (Local_u8PinEnterRead==DIO_PIN_LOW)
+		{
+
+			CLCD_voidGoToXY (++Local_DDRAMXPos,++Local_u8DDRAMYPos);
+			CLCD_u8WriteSpecialCharacter(0u,Local_u8MyPattern,++Local_u8Xpos,Local_u8Ypos);
+
+
+		}
+		if(Local_u8PinUPRead ==DIO_PIN_LOW)
+		{
+
+			CLCD_voidGoToXY (++Local_DDRAMXPos,Local_u8DDRAMYPos);
+
+			CLCD_voidSendData(ch_Operation[Local_s8Iterator1++]);
+			_delay_ms(50);
+			if(Local_s8Iterator1==3)
+			{
+				Local_s8Iterator1=0;
+
+			}
+
+			else if(Local_u8PinDownRead ==DIO_PIN_LOW)
+			{
+				CLCD_voidSendData(ch_Operation[Local_s8Iterator1--]);
+				_delay_ms(50);
+				if(Local_s8Iterator1==0)
+				{
+					Local_s8Iterator1=3;
+
+				}
+
+
+
+			}
+			if (Local_u8PinEnterRead==DIO_PIN_LOW)
+					{
+
+						//CLCD_voidGoToXY (++Local_DDRAMXPos,++Local_u8DDRAMYPos);
+						CLCD_u8WriteSpecialCharacter(0u,Local_u8MyPattern,++Local_u8Xpos,Local_u8Ypos);
+
+
+					}
+
+
+			else if(Local_u8PinUPRead ==DIO_PIN_LOW)
+			{
+
+				CLCD_voidGoToXY (Local_DDRAMXPos,++Local_u8DDRAMYPos);
+				Local_s32Num2++;
+				CLCD_voidSendNumber(Local_s32Num2);
+				_delay_ms(50);
+
+			}
+
+			else if(Local_u8PinDownRead ==DIO_PIN_LOW)
+			{
+				//CLCD_voidGoToXY (Local_DDRAMXPos,Local_u8DDRAMYPos);
+				Local_s32Num2--;
+				CLCD_voidSendNumber(Local_s32Num2);
+				_delay_ms(50);
+
+
+
+			}
+		}
+
+
+		else if (Local_u8PinEnterRead==DIO_PIN_LOW)
+		{
+
+			CLCD_voidGoToXY (Local_DDRAMXPos,++Local_u8DDRAMYPos);
+
+			CLCD_voidSendData ('=');
+
+			CLCD_u8WriteSpecialCharacter(0u,Local_u8MyPattern,Local_u8Xpos,Local_u8Ypos+1);
+			CLCD_voidCalc();
+
+
+		}
+
+
+
+	}
+}
+
+

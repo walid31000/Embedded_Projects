@@ -1,0 +1,20 @@
+00:50:23 **** Incremental Build of configuration Debug for project ISR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ISR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2158 bytes (6.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+00:50:28 Build Finished (took 4s.842ms)
+

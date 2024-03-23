@@ -1,0 +1,40 @@
+/*
+
+
+ * main.c
+ *
+ *  Created on: 13 May 2023
+ *      Author: Oxygen
+ */
+
+
+
+#include "STD_TYPES.h"
+#include<util/delay.h>
+#include "Err_Type.h"
+#include "DIO_interface.h"
+
+void main(void)
+{
+	/*set PORTC as output*/
+	DIO_u8SetPortDirection(DIO_PORTC,0xff);
+	/*activate internal pull up */
+	DIO_u8SetPinDirection(DIO_PORTA, DIO_PIN0, DIO_PIN_INPUT);
+	uint8 x=DIO_u8SetPinValue(DIO_PORTA, DIO_PIN0, DIO_PIN_HIGH);
+	while(1)
+	{
+
+		if(x==0)
+		{
+			DIO_u8SetPinValue(DIO_PORTC, DIO_PIN0, DIO_PIN_HIGH);
+		//_delay_ms(500);
+		}
+		else
+			DIO_u8SetPinValue(DIO_PORTC, DIO_PIN0, DIO_PIN_LOW);
+
+	}
+
+
+
+
+}

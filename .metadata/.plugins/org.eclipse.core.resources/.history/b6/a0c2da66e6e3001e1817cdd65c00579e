@@ -1,0 +1,18 @@
+/*
+ * main.c
+ *
+ *  Created on: 16 Mar 2024
+ *      Author: walid
+ */
+#include "STD_TYPES.h"
+#include "DIO_reg.h"
+#include "Err_Type.h"
+#include "DIO_interface.h"
+
+int main()
+{
+	DIO_u8SetPinDirection(DIO_PORTC,DIO_PIN0,DIO_PIN_OUTPUT);
+	DIO_u8SetPinDirection(DIO_PORTC,DIO_PIN1,DIO_PIN_OUTPUT);
+	DIO_u8SetPinValue(DIO_PORTC,DIO_PIN0,DIO_PIN_HIGH);
+	DIO_u8SetPinValue(DIO_PORTC,DIO_PIN1,DIO_PIN_HIGH);
+}

@@ -1,0 +1,37 @@
+18:54:09 **** Incremental Build of configuration Debug for project seven_seg ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:11:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../main.c
+ 
+Building target: libseven_seg.a
+Invoking: AVR Archiver
+avr-ar -r  "libseven_seg.a"  ./main.o  
+c:\Users\Oxygen\Desktop\IMT EMBEDDED\IMT Tools\SDK\IMT_SDK_Win_64\WinAVR\bin\avr-ar.exe: creating libseven_seg.a
+Finished building target: libseven_seg.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libseven_seg.a  >"libseven_seg.lss"
+Finished building: libseven_seg.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 libseven_seg.a
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:54:12 Build Finished (took 2s.699ms)
+

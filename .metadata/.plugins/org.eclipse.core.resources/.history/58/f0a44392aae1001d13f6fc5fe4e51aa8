@@ -1,0 +1,26 @@
+/*
+
+ * main.c
+ *
+ *  Created on: 19 Apr 2023
+ *      Author: Oxygen
+ */
+#include <util/delay.h>
+#include <avr/io.h>
+#include "BIT_MATH.h"
+int main()
+{
+	//SET_BIT(DDRA,0);
+	DDRC=0xff;
+	while(1)
+	{
+	//SET_BIT(PORTA,0);
+     PORTC=0xFF;
+  _delay_ms(1000);
+
+	PORTC=0x00;
+
+	_delay_ms(1000);
+	}
+}
+

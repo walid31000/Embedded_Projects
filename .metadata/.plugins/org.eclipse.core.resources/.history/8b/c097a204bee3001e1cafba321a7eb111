@@ -1,0 +1,16 @@
+#ifndef ERR_TYPE_H
+#define ERR_TYPE_H 
+
+#define   OK              0U
+#define   NOK             1U
+#deine    NULL_PTR        2U 
+
+
+
+
+
+
+
+
+
+#endif

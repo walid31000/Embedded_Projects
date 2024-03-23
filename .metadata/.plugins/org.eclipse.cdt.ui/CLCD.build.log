@@ -1,0 +1,41 @@
+21:05:31 **** Incremental Build of configuration Debug for project CLCD ****
+make all 
+Building file: ../main2.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main2.d" -MT"main2.o" -c -o "main2.o" "../main2.c"
+In file included from ../main2.c:9:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main2.c:15: warning: return type of 'main' is not 'int'
+Finished building: ../main2.c
+ 
+Building target: CLCD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,CLCD.map -mmcu=atmega32 -o "CLCD.elf"  ./CLCD_prog.o ./DIO_prog.o ./PORT_prog.o ./main2.o   
+Finished building target: CLCD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S CLCD.elf  >"CLCD.lss"
+Finished building: CLCD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex CLCD.elf  "CLCD.hex"
+Finished building: CLCD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 CLCD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7102 bytes (21.7% Full)
+(.text + .data + .bootloader)
+
+Data:         40 bytes (2.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:06:01 Build Finished (took 29s.580ms)
+

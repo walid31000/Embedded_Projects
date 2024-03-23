@@ -1,0 +1,23 @@
+/*
+ * main.c
+ *
+ *  Created on: 16 Mar 2024
+ *      Author: walid
+ */
+#include "STD_TYPES.h"
+
+#include "Err_Type.h"
+#include<util/delay.h>
+#include "DIO_interface.h"
+
+int main()
+{  DIO_u8SetPortDirection(DIO_PORTB,0xff);
+	while(1)
+	{
+	DIO_u8SetPortValue(DIO_PORTB,0xf0);
+
+	_delay_ms(150);
+	DIO_u8SetPortValue(DIO_PORTB,0x0f);
+	_delay_ms(150);
+	}
+}

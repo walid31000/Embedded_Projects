@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 8 resources" deleteContents="false" description="Delete 8 resources" element1="/DIO1/BIT_MATH.h" element2="/DIO1/DIO_cfg.h" element3="/DIO1/DIO_interface.h" element4="/DIO1/DIO_prog.c" element5="/DIO1/DIO_prv.h" element6="/DIO1/DIO_reg.h" element7="/DIO1/Err_Type.h" element8="/DIO1/STD_TYPES.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="8" stamp="1685486530199"/>
+</session>
