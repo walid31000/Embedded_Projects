@@ -23,6 +23,51 @@
  sint32 Local_s32Result;
  sint8 Local_s8Iterator1;
 char ch_Operation[4]={'+','-','*','/'};
+void  CLCD_voidCalc(void)
+{
+	// extern sint32 Local_s32Result;
+	 //extern  sint32 Local_s32Num1;
+	 //extern  sint32 Local_s32Num2;
+	 //extern sint8 Local_s8Iterator1;
+	 sint32 Local_s32ScaledResult;
+	 sint32 Local_s32Quotian;
+	 sint32 Local_S32Remainder;
+
+//	extern char ch_Operation[4]={'+','-','*','/'};
+
+	switch (Local_s8Iterator1)
+	{
+	case 0: Local_s32Result= Local_s32Num1+Local_s32Num2;break;
+
+	case 1:Local_s32Result= (Local_s32Num1-Local_s32Num2); break;
+
+	case 2:Local_s32Result=(Local_s32Num1*Local_s32Num2); break;
+
+	case 3:
+
+		Local_s32ScaledResult=(Local_s32Num1*100)/Local_s32Num2;
+	       Local_s32Quotian=Local_s32ScaledResult/100;
+	       Local_S32Remainder=Local_s32ScaledResult%100;
+
+	       CLCD_voidSendNumber(Local_s32Quotian);
+           CLCD_voidSendData('.');
+	       CLCD_voidSendNumber( Local_S32Remainder);
+
+	       break;
+
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
 
 
 void main(void)
@@ -234,7 +279,7 @@ void main(void)
 				CLCD_u8SendString ("         ");
 				CLCD_voidGoToXY (Local_u8Xpos,Local_u8DDRAMYPos);
 
-				CLCD_voidCalc();
+				 CLCD_voidCalc();
 				if(Local_s8Iterator1==3)
 				{
 					//do nothing

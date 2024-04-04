@@ -1,20 +1,63 @@
-10:18:21 **** Incremental Build of configuration Debug for project CLCD3 ****
+11:38:42 **** Incremental Build of configuration Debug for project CLCD3 ****
 make all 
+Building file: ../CLCD_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"CLCD_prog.d" -MT"CLCD_prog.o" -c -o "CLCD_prog.o" "../CLCD_prog.c"
+In file included from ../CLCD_prog.c:4:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../CLCD_prog.c:6:
+../Err_Type.h:4:1: warning: "NULL" redefined
+In file included from c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/stdio.h:49,
+                 from ../CLCD_prog.c:3:
+c:\users\oxygen\desktop\imt embedded\imt tools\sdk\imt_sdk_win_64\winavr\bin\../lib/gcc/avr/4.3.3/include/stddef.h:403:1: warning: this is the location of the previous definition
+Finished building: ../CLCD_prog.c
+ 
+Building file: ../DIO_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_prog.d" -MT"DIO_prog.o" -c -o "DIO_prog.o" "../DIO_prog.c"
+Finished building: ../DIO_prog.c
+ 
+Building file: ../PORT_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_prog.d" -MT"PORT_prog.o" -c -o "PORT_prog.o" "../PORT_prog.c"
+Finished building: ../PORT_prog.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:4:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:73: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: CLCD3.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,CLCD3.map -mmcu=atmega32 -o "CLCD3.elf"  ./CLCD_prog.o ./DIO_prog.o ./PORT_prog.o ./main.o   
+Finished building target: CLCD3.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S CLCD3.elf  >"CLCD3.lss"
+Finished building: CLCD3.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex CLCD3.elf  "CLCD3.hex"
+Finished building: CLCD3.hex
+ 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 CLCD3.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   14590 bytes (44.5% Full)
+Program:   14886 bytes (45.4% Full)
 (.text + .data + .bootloader)
 
-Data:        114 bytes (5.6% Full)
+Data:         69 bytes (3.4% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-10:18:21 Build Finished (took 527ms)
+11:38:47 Build Finished (took 4s.803ms)
 

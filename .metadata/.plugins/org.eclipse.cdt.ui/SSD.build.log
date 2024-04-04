@@ -1,0 +1,46 @@
+09:25:27 **** Incremental Build of configuration Debug for project SSD ****
+make all 
+Building file: ../SSD_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"SSD_prog.d" -MT"SSD_prog.o" -c -o "SSD_prog.o" "../SSD_prog.c"
+Finished building: ../SSD_prog.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:11:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:16: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: SSD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SSD.map -mmcu=atmega32 -o "SSD.elf"  ./DIO_prog.o ./SSD_prog.o ./main.o   
+Finished building target: SSD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SSD.elf  >"SSD.lss"
+Finished building: SSD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SSD.elf  "SSD.hex"
+Finished building: SSD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SSD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5690 bytes (17.4% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+09:25:34 Build Finished (took 7s.548ms)
+

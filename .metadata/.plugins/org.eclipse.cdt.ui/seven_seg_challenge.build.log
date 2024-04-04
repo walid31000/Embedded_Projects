@@ -1,0 +1,41 @@
+15:46:09 **** Incremental Build of configuration Debug for project seven_seg_challenge ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:11:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:14: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: seven_seg_challenge.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,seven_seg_challenge.map -mmcu=atmega32 -o "seven_seg_challenge.elf"  ./DIO_prog.o ./main.o   
+Finished building target: seven_seg_challenge.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S seven_seg_challenge.elf  >"seven_seg_challenge.lss"
+Finished building: seven_seg_challenge.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex seven_seg_challenge.elf  "seven_seg_challenge.hex"
+Finished building: seven_seg_challenge.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 seven_seg_challenge.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5668 bytes (17.3% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:46:10 Build Finished (took 1s.298ms)
+

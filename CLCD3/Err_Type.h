@@ -1,7 +1,7 @@
 #ifndef ERR_TYPE_H
 #define  ERR_TYPE_H
 
-#define     NULL         0
+#define     NULL         0u
 #define     OK           0U
 #define     NOK          1U
 #define     NULL_PTR     2U   

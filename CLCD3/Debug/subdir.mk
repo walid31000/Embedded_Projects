@@ -7,19 +7,19 @@ C_SRCS += \
 ../CLCD_prog.c \
 ../DIO_prog.c \
 ../PORT_prog.c \
-../main1.c 
+../main.c 
 
 OBJS += \
 ./CLCD_prog.o \
 ./DIO_prog.o \
 ./PORT_prog.o \
-./main1.o 
+./main.o 
 
 C_DEPS += \
 ./CLCD_prog.d \
 ./DIO_prog.d \
 ./PORT_prog.d \
-./main1.d 
+./main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

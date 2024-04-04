@@ -13,4 +13,5 @@ uint8 CLCD_u8WriteSpecialCharacter(uint8 copy_u8PatternNumber,uint8 copy_pu8Patt
 //void  CLCD_voidCalc(void);
 void CLCD_u8SendStringAtPos (uint8 copy_u8XPos,uint8 copy_u8YPos,const char *copy_Chstring);
 void CLCD_voidClearGide(uint8 Copy_Xpos,uint8 Copy_Ypos,uint8 Copy_GridNum );
+void CLCD_voidCalc(void);
 #endif 

@@ -51,8 +51,11 @@
 							<tool id="de.innot.avreclipse.tool.avrdude.app.debug.1793515548" name="AVRDude" superClass="de.innot.avreclipse.tool.avrdude.app.debug"/>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="de.innot.avreclipse.configuration.app.debug.195801893.1974063835" name="main.c" rcbsApplicability="disable" resourcePath="main.c" toolsToInvoke="de.innot.avreclipse.tool.compiler.winavr.app.debug.1123145309.110726890">
+						<tool id="de.innot.avreclipse.tool.compiler.winavr.app.debug.1123145309.110726890" name="AVR Compiler" superClass="de.innot.avreclipse.tool.compiler.winavr.app.debug.1123145309"/>
+					</fileInfo>
 					<sourceEntries>
-						<entry excluding="main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Hamoksha.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

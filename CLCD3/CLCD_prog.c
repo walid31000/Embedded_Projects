@@ -244,8 +244,3 @@ CLCD_u8SendString(copy_Chstring);
 
 
 
-
-
-
-
-
