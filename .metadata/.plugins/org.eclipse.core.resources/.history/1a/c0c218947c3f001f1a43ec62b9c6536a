@@ -1,0 +1,54 @@
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "Err_Type.h"
+#include "ADC_interface.h"
+#include "ADC_cfg.h"
+#include "ADC_reg.h"
+#include "ADC_prv.h"
+
+
+
+
+
+void ADC_voidInit(void)
+{
+	/*Refrence selection Avcc*/
+	SET_BIT(ADMUX,ADMUX_REFS0);
+	CLR_BIT(ADMUX,ADMUX_REFS1);
+
+	/*Activate left adjust result for 8 bit resolution */
+	SET_BIT(ADMUX,ADMUX_ADLAR);
+
+	/*check on prescaler configuration  setting*/
+
+	ADCSRA &=PRESCALER_MASK;   /*clear the prescaler bits*/
+	ADCSRA |=ADC_u8PRESCALER;
+
+
+    /*ADC enable*/
+	SET_BIT(ADCSRA,ADCSRA_ADEN);
+
+}
+
+
+uint8  ADC_u8GetChannelReading(ADC_Channel_t copy_u8Channel)
+{
+
+	/*set the required channel*/
+
+	ADCSRA &=CHANNEL_SELECTION_MASK  ; /*clear the channel selection bits*/
+	ADCSRA|=copy_u8Channel;
+
+
+	/*start conversion*/
+	SET_BIT(ADCSRA,ADCSRA_ADSC);
+
+   /*wait (block) until conversion is completed*/
+	while(GET_BIT(ADCSRA,ADCSRA_ADIF==0));
+
+	/*clear the conversion complete flag*/
+	SET_BIT(ADCSRA,ADCSRA_ADIF);
+
+
+   return ADCH;
+}

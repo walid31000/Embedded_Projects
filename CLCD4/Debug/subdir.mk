@@ -4,19 +4,22 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../CLCD_app1.c \
 ../CLCD_prog.c \
-../DIO_prog.c 
+../DIO_prog.c \
+../PORT_prog.c \
+../main.c 
 
 OBJS += \
-./CLCD_app1.o \
 ./CLCD_prog.o \
-./DIO_prog.o 
+./DIO_prog.o \
+./PORT_prog.o \
+./main.o 
 
 C_DEPS += \
-./CLCD_app1.d \
 ./CLCD_prog.d \
-./DIO_prog.d 
+./DIO_prog.d \
+./PORT_prog.d \
+./main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

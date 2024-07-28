@@ -1,0 +1,61 @@
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "Err_Type.h"
+#include "DIO_interface.h"
+#include "KPD_interface.h"
+#include "KPD_cfg.h"
+#include "KPD_prv.h"
+
+
+uint8 KPD_u8GetPressedKey(void)
+{
+ static uint8 Local_u8Row_Counter,Local_u8Col_Counter,Local_u8KeyState,Local_u8PressedKey=KPD_u8NO_PRESSED_KEY_VAL;
+  static uint8 Local_u8COLArr[COL_NUM]={KPD_u8C0_PIN,KPD_u8C1_PIN,KPD_u8C2_PIN,KPD_u8C3_PIN};
+  static uint8 Local_u8ROWArr[ROW_NUM]={KPD_u8R0_PIN,KPD_u8R1_PIN,KPD_u8R2_PIN,KPD_u8R3_PIN};
+
+uint8 Local_u8KPD_Arr[ROW_NUM][COL_NUM]=KPD_u8BUTTON_ARR ;
+   /*activate the colunm pins*/
+   for(Local_u8Col_Counter=0u;Local_u8Col_Counter<COL_NUM;Local_u8Col_Counter++)
+	 {
+	   /*activate the current column*/
+      DIO_u8SetPinValue(KPD_u8RCOL_PORT,Local_u8COLArr[Local_u8Col_Counter] ,DIO_PIN_LOW);
+
+	   /*Read the row pins*/
+	   for(Local_u8Row_Counter=0u;Local_u8Row_Counter<ROW_NUM;Local_u8Row_Counter++)
+	   {
+         DIO_u8GetPinValue(KPD_u8ROW_PORT,Local_u8ROWArr[Local_u8Row_Counter],&Local_u8KeyState);
+         if(Local_u8KeyState==DIO_PIN_LOW)
+         {
+        	 Local_u8PressedKey=Local_u8KPD_Arr[Local_u8Row_Counter][Local_u8Col_Counter];
+        	 /*wait until key is released (pooling with blocking on pin reading*/
+        	 while(Local_u8KeyState==DIO_PIN_LOW)
+        	 {
+              DIO_u8GetPinValue(KPD_u8ROW_PORT,Local_u8ROWArr[Local_u8Row_Counter],&Local_u8KeyState);
+
+        	 }
+
+        	 return Local_u8PressedKey;
+         }
+
+       }
+       /*deactivate the current column*/
+	      DIO_u8SetPinValue(KPD_u8RCOL_PORT,Local_u8COLArr[Local_u8Col_Counter] ,DIO_PIN_HIGH);
+
+	 }
+   return Local_u8PressedKey;
+}
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+

@@ -29,7 +29,7 @@ void CLCD_voidSendCommand(uint8 copy_u8Command)
 	/*1-set RS pin to low for command */
 	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RS_PIN,DIO_PIN_LOW );
 	/*2-set RW pin to low to write */
-#if CLCD_u8RS_PIN ==ENABLED
+#if CLCD_u8READ_OPERATION_ENABLE ==ENABLED
 	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RW_PIN,DIO_PIN_LOW );
 #endif
 	/*3-send the command*/
@@ -52,7 +52,7 @@ void CLCD_voidSendData(uint8 copy_u8Data)
 	/*1-set RS pin to high for data */
 	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RS_PIN,DIO_PIN_HIGH );
 	/*2-set RW pin to low to write */
-#if CLCD_u8RS_PIN ==ENABLED
+#if CLCD_u8READ_OPERATION_ENABLE ==ENABLED
 	DIO_u8SetPinValue(CLCD_u8CTRL_PORT,CLCD_u8RW_PIN,DIO_PIN_LOW );
 #endif
 	/*3-send the data*/
@@ -138,7 +138,7 @@ void CLCD_voidSendNumber(uint32 copy_u32Number)
 	}
 	for(Local_u8Iterator2=(sint8)(Local_u8Iterator1-1);Local_u8Iterator2>=0;Local_u8Iterator2--)
 	{
-		CLCD_voidSendData(Local_u8Arr[Local_u8Iterator2]);
+		CLCD_voidSendData((uint8)Local_u8Arr[Local_u8Iterator2]);
 	}
 
 

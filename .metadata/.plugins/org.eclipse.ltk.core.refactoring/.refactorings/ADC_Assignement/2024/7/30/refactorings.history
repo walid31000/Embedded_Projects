@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ADC_Assignement/lm35.c&apos; to &apos;main_lm35.c&apos;" description="Rename resource &apos;lm35.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="lm35.c" name="main_lm35.c" stamp="1722029936282" updateReferences="true"/>
+</session>

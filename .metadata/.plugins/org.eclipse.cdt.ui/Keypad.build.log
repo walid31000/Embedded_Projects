@@ -1,0 +1,17 @@
+01:12:45 **** Incremental Build of configuration Debug for project Keypad ****
+make all 
+Building file: ../KPD_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"KPD_prog.d" -MT"KPD_prog.o" -c -o "KPD_prog.o" "../KPD_prog.c"
+../KPD_prog.c: In function 'KPD_u8GetPressedKey':
+../KPD_prog.c:27: error: subscripted value is neither array nor pointer
+../KPD_prog.c:27: error: incompatible type for argument 2 of 'DIO_u8GetPinValue'
+../KPD_prog.c:27: error: too few arguments to function 'DIO_u8GetPinValue'
+../KPD_prog.c:34: error: subscripted value is neither array nor pointer
+../KPD_prog.c:34: error: incompatible type for argument 2 of 'DIO_u8GetPinValue'
+../KPD_prog.c:34: error: too few arguments to function 'DIO_u8GetPinValue'
+../KPD_prog.c:14: warning: unused variable 'Local_u8RowArr'
+make: *** [KPD_prog.o] Error 1
+
+01:12:45 Build Finished (took 703ms)
+

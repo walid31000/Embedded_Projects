@@ -1,0 +1,38 @@
+21:28:13 **** Incremental Build of configuration Debug for project ADC3 ****
+make all 
+Building file: ../ADC_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ADC_prog.d" -MT"ADC_prog.o" -c -o "ADC_prog.o" "../ADC_prog.c"
+Finished building: ../ADC_prog.c
+ 
+Building target: ADC3.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC3.map -mmcu=atmega32 -o "ADC3.elf"  ./ADC_prog.o ./DIO_prog.o ./PORT_prog.o ./main.o   
+Finished building target: ADC3.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC3.elf  >"ADC3.lss"
+Finished building: ADC3.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC3.elf  "ADC3.hex"
+Finished building: ADC3.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ADC3.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2396 bytes (7.3% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:28:16 Build Finished (took 2s.113ms)
+

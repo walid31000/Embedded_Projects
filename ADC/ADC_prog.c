@@ -37,8 +37,8 @@ void ADC_voidInit (void)
 uint16 ADC_u16GetChannelReading (ADC_Channel_t copy_Channel)
 {
   /*Set the required channel */
-	ADCSRA &=CHANNEL_SELECTION_MASK ;/*clear the channel selection bits */
-	ADCSRA |=copy_Channel;
+	ADMUX &=CHANNEL_SELECTION_MASK ;/*clear the channel selection bits */
+	ADMUX |=copy_Channel;
 	/* Start conversion*/
 	SET_BIT(ADCSRA,ADCSRA_ADSC);
 	/*wait (block) until conversion is completed*/

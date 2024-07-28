@@ -1,0 +1,35 @@
+/*
+ * main.c
+ *ADC application on 8LEDs
+ *  Created on: 10 Jul 2024
+ *      Author: walid
+ */
+
+
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "Err_Type.h"
+#include "PORT_interface.h"
+#include "DIO_interface.h"
+#include "ADC_interface.h"
+
+void main(void)
+{
+uint8 Local_u8Digital;
+	PORT_voidIint();
+	ADC_voidInit();
+
+	while(1)
+	{
+		Local_u8Digital=ADC_u8GetChannelReading(ADC0_SINGLE_ENDED);
+
+		DIO_u8SetPortValue(DIO_PORTB,Local_u8Digital);
+
+
+
+	}
+
+
+
+}

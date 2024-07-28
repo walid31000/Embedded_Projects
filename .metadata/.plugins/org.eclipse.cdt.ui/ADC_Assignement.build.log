@@ -1,0 +1,39 @@
+22:49:10 **** Incremental Build of configuration Debug for project ADC_Assignement ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:19: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: ADC_Assignement.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC_Assignement.map -mmcu=atmega32 -o "ADC_Assignement.elf"  ./ADC_prog.o ./CLCD_prog.o ./DIO_prog.o ./Map.o ./PORT_prog.o ./main.o   
+Finished building target: ADC_Assignement.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC_Assignement.elf  >"ADC_Assignement.lss"
+Finished building: ADC_Assignement.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC_Assignement.elf  "ADC_Assignement.hex"
+Finished building: ADC_Assignement.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ADC_Assignement.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10406 bytes (31.8% Full)
+(.text + .data + .bootloader)
+
+Data:         80 bytes (3.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+22:49:13 Build Finished (took 2s.969ms)
+

@@ -2,7 +2,7 @@
 #include "BIT_MATH.h"
 #include "Err_type.h"
 
-#include "DIO_interface.h"
+#include "EXTI_interface.h"
 #include "EXTI_prv.h"
 #include "EXTI_cfg.h"
 #include "EXTI_reg.h"
@@ -55,14 +55,6 @@ void EXTI_voidInit (void)
 #error "Wrong EXTI_u8INT2_TRIG_SRC configuration option "
 #endif
 
-#if EXTI_u8INT1_STATE==DISABLED
-	CLR_BIT (GICR,GICR_INT0);
-#elif EXTI_u8INT0_STATE ==ENABLED
-	SET_BIT(GICR,GICR_INT0);
-#else
-#error "Wrong EXTI_u8INT0_STATE configuration option"
-#endif
-
 #if EXTI_u8INT0_STATE==DISABLED
 	CLR_BIT (GICR,GICR_INT0);
 #elif EXTI_u8INT0_STATE ==ENABLED
@@ -70,6 +62,8 @@ void EXTI_voidInit (void)
 #else
 #error "Wrong EXTI_u8INT0_STATE configuration option"
 #endif
+
+
 
 #if EXTI_u8INT1_STATE==DISABLED
 	CLR_BIT (GICR,GICR_INT1);

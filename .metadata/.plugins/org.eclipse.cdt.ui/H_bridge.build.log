@@ -1,0 +1,41 @@
+13:16:36 **** Incremental Build of configuration Debug for project H_bridge ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:12:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:16: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: H_bridge.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,H_bridge.map -mmcu=atmega32 -o "H_bridge.elf"  ./DIO_prog.o ./PORT_prog.o ./main.o   
+Finished building target: H_bridge.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S H_bridge.elf  >"H_bridge.lss"
+Finished building: H_bridge.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex H_bridge.elf  "H_bridge.hex"
+Finished building: H_bridge.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 H_bridge.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5556 bytes (17.0% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:16:38 Build Finished (took 2s.721ms)
+

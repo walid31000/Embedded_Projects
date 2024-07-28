@@ -47,9 +47,10 @@ signature        0x00840000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-LOAD ./CLCD_app1.o
 LOAD ./CLCD_prog.o
 LOAD ./DIO_prog.o
+LOAD ./PORT_prog.o
+LOAD ./main.o
 LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
 LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
@@ -144,7 +145,7 @@ LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bi
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x182e
+.text           0x00000000     0x1852
  *(.vectors)
  .vectors       0x00000000       0x54 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -219,9 +220,10 @@ LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bi
                 0x0000007e                __vector_16
                 0x0000007e                __vector_18
                 0x0000007e                __vector_20
- .text          0x00000082        0x0 ./CLCD_app1.o
  .text          0x00000082        0x0 ./CLCD_prog.o
  .text          0x00000082        0x0 ./DIO_prog.o
+ .text          0x00000082        0x0 ./PORT_prog.o
+ .text          0x00000082        0x0 ./main.o
  .text          0x00000082        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
  .text          0x00000082        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .text          0x00000082       0x58 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
@@ -251,58 +253,61 @@ LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bi
                 0x00000a84                __fpcmp_parts_f
                 0x00000b36                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x00000b36       0x3a ./CLCD_app1.o
-                0x00000b36                main
  .text.void_SendHalfData
-                0x00000b70       0x60 ./CLCD_prog.o
+                0x00000b36       0x60 ./CLCD_prog.o
  .text.void_SendEnablePulse
-                0x00000bd0      0x11e ./CLCD_prog.o
+                0x00000b96      0x11e ./CLCD_prog.o
  .text.CLCD_voidSendCommand
-                0x00000cee       0x36 ./CLCD_prog.o
-                0x00000cee                CLCD_voidSendCommand
+                0x00000cb4       0x36 ./CLCD_prog.o
+                0x00000cb4                CLCD_voidSendCommand
  .text.CLCD_voidSendData
-                0x00000d24       0x36 ./CLCD_prog.o
-                0x00000d24                CLCD_voidSendData
+                0x00000cea       0x36 ./CLCD_prog.o
+                0x00000cea                CLCD_voidSendData
  .text.CLCD_voidInit
-                0x00000d5a      0x134 ./CLCD_prog.o
-                0x00000d5a                CLCD_voidInit
+                0x00000d20      0x134 ./CLCD_prog.o
+                0x00000d20                CLCD_voidInit
  .text.CLCD_u8SendString
-                0x00000e8e       0x54 ./CLCD_prog.o
-                0x00000e8e                CLCD_u8SendString
+                0x00000e54       0x54 ./CLCD_prog.o
+                0x00000e54                CLCD_u8SendString
  .text.CLCD_voidSendNumber
-                0x00000ee2       0xe8 ./CLCD_prog.o
-                0x00000ee2                CLCD_voidSendNumber
+                0x00000ea8       0xe8 ./CLCD_prog.o
+                0x00000ea8                CLCD_voidSendNumber
  .text.DIO_u8SetPinDirection
-                0x00000fca      0x224 ./DIO_prog.o
-                0x00000fca                DIO_u8SetPinDirection
+                0x00000f90      0x224 ./DIO_prog.o
+                0x00000f90                DIO_u8SetPinDirection
  .text.DIO_u8SetPortDirection
-                0x000011ee       0x90 ./DIO_prog.o
-                0x000011ee                DIO_u8SetPortDirection
+                0x000011b4       0x90 ./DIO_prog.o
+                0x000011b4                DIO_u8SetPortDirection
  .text.DIO_u8SetPinValue
-                0x0000127e      0x224 ./DIO_prog.o
-                0x0000127e                DIO_u8SetPinValue
+                0x00001244      0x224 ./DIO_prog.o
+                0x00001244                DIO_u8SetPinValue
  .text.DIO_u8SetPortValue
-                0x000014a2       0x90 ./DIO_prog.o
-                0x000014a2                DIO_u8SetPortValue
+                0x00001468       0x90 ./DIO_prog.o
+                0x00001468                DIO_u8SetPortValue
  .text.DIO_u8GetPinValue
-                0x00001532      0x130 ./DIO_prog.o
-                0x00001532                DIO_u8GetPinValue
+                0x000014f8      0x130 ./DIO_prog.o
+                0x000014f8                DIO_u8GetPinValue
  .text.DIO_u8TogglePinValue
-                0x00001662      0x116 ./DIO_prog.o
-                0x00001662                DIO_u8TogglePinValue
- .text.libgcc   0x00001778       0x44 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00001778                __udivmodsi4
- .text.libgcc   0x000017bc        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000017bc       0x38 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x000017bc                __prologue_saves__
- .text.libgcc   0x000017f4       0x36 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x000017f4                __epilogue_restores__
- .text.libgcc   0x0000182a        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                0x0000182a                . = ALIGN (0x2)
+                0x00001628      0x116 ./DIO_prog.o
+                0x00001628                DIO_u8TogglePinValue
+ .text.PORT_voidIint
+                0x0000173e       0x46 ./PORT_prog.o
+                0x0000173e                PORT_voidIint
+ .text.main     0x00001784       0x18 ./main.o
+                0x00001784                main
+ .text.libgcc   0x0000179c       0x44 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x0000179c                __udivmodsi4
+ .text.libgcc   0x000017e0        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000017e0       0x38 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000017e0                __prologue_saves__
+ .text.libgcc   0x00001818       0x36 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00001818                __epilogue_restores__
+ .text.libgcc   0x0000184e        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x0000184e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000182a        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000182a                exit
-                0x0000182a                _exit
+ .fini9         0x0000184e        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000184e                exit
+                0x0000184e                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -321,17 +326,18 @@ LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bi
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000182a        0x4 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000184e        0x4 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000182e                _etext = .
+                0x00001852                _etext = .
 
-.data           0x00800060        0x8 load address 0x0000182e
+.data           0x00800060        0x8 load address 0x00001852
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .data          0x00800060        0x0 ./CLCD_app1.o
  .data          0x00800060        0x0 ./CLCD_prog.o
  .data          0x00800060        0x0 ./DIO_prog.o
+ .data          0x00800060        0x0 ./PORT_prog.o
+ .data          0x00800060        0x0 ./main.o
  .data          0x00800060        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
  .data          0x00800060        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .data          0x00800060        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
@@ -361,9 +367,10 @@ LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bi
                 0x00800068                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800068        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x00800068        0x0 ./CLCD_app1.o
  .bss           0x00800068        0x0 ./CLCD_prog.o
  .bss           0x00800068        0x0 ./DIO_prog.o
+ .bss           0x00800068        0x0 ./PORT_prog.o
+ .bss           0x00800068        0x0 ./main.o
  .bss           0x00800068        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
  .bss           0x00800068        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .bss           0x00800068        0x0 c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
@@ -383,8 +390,8 @@ LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bi
  *(.bss*)
  *(COMMON)
                 0x00800068                PROVIDE (__bss_end, .)
-                0x0000182e                __data_load_start = LOADADDR (.data)
-                0x00001836                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001852                __data_load_start = LOADADDR (.data)
+                0x0000185a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800068        0x0
                 0x00800068                PROVIDE (__noinit_start, .)
@@ -409,17 +416,19 @@ LOAD c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/bi
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x10c8
+.stab           0x00000000     0x11e8
  *(.stab)
- .stab          0x00000000      0x3f0 ./CLCD_app1.o
- .stab          0x000003f0      0x600 ./CLCD_prog.o
-                                0x87c (size before relaxing)
- .stab          0x000009f0      0x6d8 ./DIO_prog.o
+ .stab          0x00000000      0x87c ./CLCD_prog.o
+ .stab          0x0000087c      0x6d8 ./DIO_prog.o
                                 0x7c8 (size before relaxing)
+ .stab          0x00000f54      0x168 ./PORT_prog.o
+                                0x1ec (size before relaxing)
+ .stab          0x000010bc      0x12c ./main.o
+                                0x21c (size before relaxing)
 
-.stabstr        0x00000000      0xc47
+.stabstr        0x00000000      0xc67
  *(.stabstr)
- .stabstr       0x00000000      0xc47 ./CLCD_app1.o
+ .stabstr       0x00000000      0xc67 ./CLCD_prog.o
 
 .stab.excl
  *(.stab.excl)

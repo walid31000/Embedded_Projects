@@ -7,21 +7,21 @@
 /*provide macro for RW pin :1-ENABLED
  *                          2-DISABLED */
 
-#define CLCD_u8RW_PIN    DISABLED
+#define CLCD_u8READ_OPERATION_ENABLE     DISABLED
 
 #if CLCD_u8CONNECTION_MODE ==  FOUR_BIT
-#define CLCD_u8DB4_PIN         DIO_PIN0
-#define CLCD_u8DB5_PIN         DIO_PIN1
-#define CLCD_u8DB6_PIN         DIO_PIN2
-#define CLCD_u8DB7_PIN         DIO_PIN3
+#define CLCD_u8DB4_PIN         DIO_PIN3
+#define CLCD_u8DB5_PIN         DIO_PIN4
+#define CLCD_u8DB6_PIN         DIO_PIN5
+#define CLCD_u8DB7_PIN         DIO_PIN6
 
 #endif
 
-#define CLCD_u8DATA_PORT          DIO_PORTA
+#define CLCD_u8DATA_PORT         DIO_PORTA
 
-#define CLCD_u8CTRL_PORT         DIO_PORTB
+#define CLCD_u8CTRL_PORT         DIO_PORTA
 #define CLCD_u8RS_PIN            DIO_PIN1
-#if CLCD_u8RS_PIN ==ENABLED
+#if CLCD_u8READ_OPERATION_ENABLE ==ENABLED
 #define CLCD_u8RW_PIN            DIO_PIN0
 #endif
 #define CLCD_u8E_PIN             DIO_PIN2

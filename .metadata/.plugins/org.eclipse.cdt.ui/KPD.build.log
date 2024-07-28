@@ -1,23 +1,5 @@
-12:08:38 **** Incremental Build of configuration Debug for project KPD ****
+01:12:43 **** Incremental Build of configuration Debug for project KPD ****
 make all 
-Building file: ../PORT_prog.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_prog.d" -MT"PORT_prog.o" -c -o "PORT_prog.o" "../PORT_prog.c"
-Finished building: ../PORT_prog.c
- 
-Building target: KPD.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,KPD.map -mmcu=atmega32 -o "KPD.elf"  ./CLCD_prog.o ./DIO_prog.o ./KPD_prog.o ./PORT_prog.o ./main.o   
-Finished building target: KPD.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S KPD.elf  >"KPD.lss"
-Finished building: KPD.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex KPD.elf  "KPD.hex"
-Finished building: KPD.hex
- 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 KPD.elf
 AVR Memory Usage
@@ -34,5 +16,5 @@ Data:         32 bytes (1.6% Full)
 Finished building: sizedummy
  
 
-12:08:43 Build Finished (took 4s.303ms)
+01:12:44 Build Finished (took 913ms)
 

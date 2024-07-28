@@ -1,0 +1,20 @@
+20:13:16 **** Incremental Build of configuration Debug for project Login_System ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Login_System.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   14338 bytes (43.8% Full)
+(.text + .data + .bootloader)
+
+Data:        173 bytes (8.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:13:17 Build Finished (took 770ms)
+

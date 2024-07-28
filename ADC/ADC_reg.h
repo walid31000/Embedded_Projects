@@ -7,7 +7,7 @@
 #define ADMUX_ADLAR       5                          /*Left adjust result */
 
 
-#define ADCSRA            *((volatile uint8*) 0X26)  /*ADC controland ststus register A */
+#define ADCSRA            *((volatile uint8*) 0X26)  /*ADC controland status register A */
 #define ADCSRA_ADEN         7                        /*Enable*/
 #define ADCSRA_ADSC         6                        /*Start conversion*/
 #define ADCSRA_ADATE        5                        /*Auto trigger Enable*/
@@ -17,7 +17,7 @@
 
 #define ADCH            *((volatile uint8*) 0X25)  /*Data high register */
 #define ADCL            *((volatile uint8*) 0X24)  /*Data low register */
-#define ADC            *((volatile uint8*) 0X24)  /*ADC Data register */
+#define ADC            *((volatile uint16*) 0X24)  /*ADC Data register */
 
 
 #endif
