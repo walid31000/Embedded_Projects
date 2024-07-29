@@ -11,14 +11,12 @@
 #include <util/delay.h>
 #include "Map.h"
 #include "Err_Type.h"
-
-#include "DIO_interface.h"
 #include "PORT_interface.h"
 #include "CLCD_interface.h"
 
-#include "ADC_interface.h"
+#include "DIO_interface.h"
 #include "LED_interface.h"
-
+#include "ADC_interface.h"
 #include "LDR_interface.h"
 
 extern   uint16 copy_u16Reading;// to save analog value
@@ -52,6 +50,7 @@ void main(void)
 
 		{
 
+			//CLCD_voidClearGide(13,0,2);//clear the old result before displaying the new one
 			CLCD_u8SendStringAtPos(0,0,"Level=");
 			CLCD_voidSendNumber(Local_u8LightLevel);
 			CLCD_u8SendString(" Morning");
@@ -61,14 +60,14 @@ void main(void)
 			CLCD_voidSendNumber(copy_u16Reading);
 
 			//DIO_u8SetPinValue(DIO_PORTB,DIO_PIN0,DIO_PIN_LOW);
-			LED_u8SetOFF(&LED_RED);//Turn Off Red Led
+			 LED_u8SetOFF(&LED_RED);
 			_delay_ms(200);
 
 		}
 		else
 		{
 			//DIO_u8SetPinValue(DIO_PORTB,DIO_PIN0,DIO_PIN_HIGH);
-			LED_u8SetON(&LED_RED);//Turn ON Red Led
+			 LED_u8SetON(&LED_RED);
 			CLCD_u8SendStringAtPos(0,0,"Level=");
 			CLCD_voidSendNumber(Local_u8LightLevel);//display light level
 			CLCD_u8SendString(" Evening");

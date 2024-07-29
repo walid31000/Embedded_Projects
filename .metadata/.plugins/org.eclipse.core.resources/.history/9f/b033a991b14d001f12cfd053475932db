@@ -61,14 +61,14 @@ void main(void)
 			CLCD_voidSendNumber(copy_u16Reading);
 
 			//DIO_u8SetPinValue(DIO_PORTB,DIO_PIN0,DIO_PIN_LOW);
-			LED_u8SetOFF(&LED_RED);//Turn Off Red Led
+			 LED_u8SetOFF(&LED_RED);//Turn Off Red Led
 			_delay_ms(200);
 
 		}
 		else
 		{
 			//DIO_u8SetPinValue(DIO_PORTB,DIO_PIN0,DIO_PIN_HIGH);
-			LED_u8SetON(&LED_RED);//Turn ON Red Led
+			 LED_u8SetON(&LED_RED);//Turn ON Red Led
 			CLCD_u8SendStringAtPos(0,0,"Level=");
 			CLCD_voidSendNumber(Local_u8LightLevel);//display light level
 			CLCD_u8SendString(" Evening");

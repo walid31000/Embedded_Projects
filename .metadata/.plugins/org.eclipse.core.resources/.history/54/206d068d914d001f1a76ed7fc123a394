@@ -11,14 +11,10 @@
 #include <util/delay.h>
 #include "Map.h"
 #include "Err_Type.h"
-
-#include "DIO_interface.h"
 #include "PORT_interface.h"
 #include "CLCD_interface.h"
-
+#include "DIO_interface.h"
 #include "ADC_interface.h"
-#include "LED_interface.h"
-
 #include "LDR_interface.h"
 
 extern   uint16 copy_u16Reading;// to save analog value
@@ -32,7 +28,6 @@ void main(void)
 	sint8 Local_u8LightLevel;
 
 	LDR_Config_t LDR_OBJECT={ADC0_SINGLE_ENDED,5000};
-	Led_config_t LED_RED={DIO_PORTB,DIO_PIN0,ACT_HIGH};
 
 	while(1)
 	{
@@ -51,32 +46,31 @@ void main(void)
 		if(Local_u8LightLevel>5)
 
 		{
-
-			CLCD_u8SendStringAtPos(0,0,"Level=");
+			CLCD_voidGoToXY(0,0);
+			CLCD_voidClearGide(13,0,2);//clear the old result before displaying the new one
+			CLCD_u8SendStringAtPos(0,0,"Light Level=");
 			CLCD_voidSendNumber(Local_u8LightLevel);
-			CLCD_u8SendString(" Morning");
-
 			CLCD_u8SendStringAtPos(0,1,"Analog=");
 
 			CLCD_voidSendNumber(copy_u16Reading);
+			CLCD_u8SendString(" Morning");
 
-			//DIO_u8SetPinValue(DIO_PORTB,DIO_PIN0,DIO_PIN_LOW);
-			LED_u8SetOFF(&LED_RED);//Turn Off Red Led
+			DIO_u8SetPinValue(DIO_PORTB,DIO_PIN0,DIO_PIN_LOW);
 			_delay_ms(200);
 
 		}
 		else
 		{
-			//DIO_u8SetPinValue(DIO_PORTB,DIO_PIN0,DIO_PIN_HIGH);
-			LED_u8SetON(&LED_RED);//Turn ON Red Led
-			CLCD_u8SendStringAtPos(0,0,"Level=");
-			CLCD_voidSendNumber(Local_u8LightLevel);//display light level
-			CLCD_u8SendString(" Evening");
+			DIO_u8SetPinValue(DIO_PORTB,DIO_PIN0,DIO_PIN_HIGH);
+			CLCD_voidGoToXY(0,0);
+			CLCD_voidClearGide(13,0,2);
+			CLCD_u8SendStringAtPos(0,0,"Light Level=");
+			CLCD_voidSendNumber(Local_u8LightLevel);
 			CLCD_u8SendStringAtPos(0,1,"Analog=");
 
-			CLCD_voidSendNumber(copy_u16Reading);//display analog value
-
-
+			CLCD_voidSendNumber(copy_u16Reading);
+			CLCD_u8SendString(" Evening");
+			CLCD_voidSendNumber(Local_u8LightLevel);
 
 			_delay_ms(200);
 
