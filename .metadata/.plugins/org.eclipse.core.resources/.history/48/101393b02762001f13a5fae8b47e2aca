@@ -1,0 +1,16 @@
+#ifndef WDT_INTERFACE_H
+#define WDT_INTERFACE_H
+
+
+uint8 WDT_SetTime(uint8 copy_u8Time);
+
+
+
+
+
+
+
+
+
+
+#endif

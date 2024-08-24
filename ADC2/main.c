@@ -17,7 +17,7 @@
 #include "ADC_interface.h"
 #include "GIE_interface.h"
 
-void convert(void);
+void ADC_Callback(void);
 uint8 Local_u8LedVal;
 uint16 Local_u16Digital;
 
@@ -30,7 +30,7 @@ void main(void)
 	{
 		//Local_u16Digital=ADC_u16GetChannelReading(ADC0_SINGLE_ENDED);
 		//ADC_u16StartConversionSynch(ADC0_SINGLE_ENDED,&Local_u16Digital);
-		ADC_u16StartConversionAsynch(ADC0_SINGLE_ENDED,&Local_u16Digital,&convert);
+		ADC_u16StartConversionAsynch(ADC0_SINGLE_ENDED,&Local_u16Digital,&ADC_Callback);
 
     _delay_ms(10);
 	//	Local_u8LedVal= Map(0,1023,0,255,Local_u16Digital);
@@ -47,7 +47,7 @@ void main(void)
 }
 
 
-void convert(void)
+void ADC_Callback(void)
 {
 	Local_u8LedVal=  (uint8)(((uint32)(Local_u16Digital*255UL)/1023UL));
 

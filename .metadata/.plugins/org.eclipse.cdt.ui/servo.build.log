@@ -1,0 +1,39 @@
+11:27:56 **** Incremental Build of configuration Debug for project servo ****
+make all 
+Building file: ../main1.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main1.d" -MT"main1.o" -c -o "main1.o" "../main1.c"
+../main1.c:20: warning: return type of 'main' is not 'int'
+Finished building: ../main1.c
+ 
+Building target: servo.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,servo.map -mmcu=atmega32 -o "servo.elf"  ./ADC_prog.o ./DIO_prog.o ./Map.o ./PORT_prog.o ./Timer_prog.o ./main1.o   
+Finished building target: servo.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S servo.elf  >"servo.lss"
+Finished building: servo.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex servo.elf  "servo.hex"
+Finished building: servo.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 servo.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4362 bytes (13.3% Full)
+(.text + .data + .bootloader)
+
+Data:          9 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+11:27:57 Build Finished (took 1s.376ms)
+

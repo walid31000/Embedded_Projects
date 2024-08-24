@@ -7,12 +7,46 @@
  */
 
 
+/**  *******************************************************
+ * @mainpage Test the DIO driver
+ * @brief    Turn on the Led with each press on the switch
+ * @author   Walid Megherbi
+ *           <BR>
+ *           <EM>
+ *           Github: https://github.com/walid31000
+ *           </EM>
+ * @version   1.0.0
+ * @date     31/5/2023
+ * @copyright Walid Megherbi
+ *
+ *
+ * @image  html "../DIO_test.png " "Hardware schematic"
+ *         <BR>
+ * @details <B> Details </B>
+ *          <B> Turn on the Led with each press on the switch
+ *          <BR>
+ *          <B> Target </B> ATMEGA 32
+ *          <BR>
+ *          <B> internal clock </B> 8MHZ
+ *          <BR>
+ *          <B> Compiler </B>  GCC
+ */
+
+
+
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 #include <util/delay.h>
 #include "Err_Type.h"
 #include "DIO_interface.h"
 
+
+/**
+ * @brief Main function to test the DIO driver.
+ *
+ * This function sets up the necessary pin directions and values.
+ * It continuously checks the state of a switch and toggles an LED accordingly.
+ */
 void main(void)
 {
 

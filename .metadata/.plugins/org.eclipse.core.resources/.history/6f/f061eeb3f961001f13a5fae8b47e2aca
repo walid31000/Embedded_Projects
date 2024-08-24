@@ -1,0 +1,19 @@
+/*
+
+ * main.c
+ *watchdog timer application
+ *  Created on: 24 Aug 2024
+ *      Author: Oxygen
+ */
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+
+#include "Err_Type.h"
+#include "PORT_interface.h"
+#include "DIO_interface.h"
+
+
+#include "WDT_reg.h"
+

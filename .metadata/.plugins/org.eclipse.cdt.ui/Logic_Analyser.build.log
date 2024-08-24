@@ -1,0 +1,41 @@
+15:44:25 **** Build of configuration Debug for project Logic_Analyser ****
+make all 
+Building file: ../3LED_assignemnt.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"3LED_assignemnt.d" -MT"3LED_assignemnt.o" -c -o "3LED_assignemnt.o" "../3LED_assignemnt.c"
+In file included from ../3LED_assignemnt.c:12:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../3LED_assignemnt.c:32: warning: return type of 'main' is not 'int'
+Finished building: ../3LED_assignemnt.c
+ 
+Building target: Logic_Analyser.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Logic_Analyser.map -mmcu=atmega32 -o "Logic_Analyser.elf"  ./3LED_assignemnt.o ./DIO_prog.o ./GIE_prog.o ./LED_prog.o ./PORT_prog.o ./Timer_prog.o   
+Finished building target: Logic_Analyser.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Logic_Analyser.elf  >"Logic_Analyser.lss"
+Finished building: Logic_Analyser.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Logic_Analyser.elf  "Logic_Analyser.hex"
+Finished building: Logic_Analyser.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Logic_Analyser.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3220 bytes (9.8% Full)
+(.text + .data + .bootloader)
+
+Data:         14 bytes (0.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:44:30 Build Finished (took 5s.355ms)
+

@@ -1,0 +1,41 @@
+20:27:16 **** Incremental Build of configuration Debug for project Complete_Motor_Dashboard ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:12:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:127: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: Complete_Motor_Dashboard.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Complete_Motor_Dashboard.map -mmcu=atmega32 -o "Complete_Motor_Dashboard.elf"  ./ADC_prog.o ./CLCD_prog.o ./DC_prog.o ./DIO_prog.o ./KPD_prog.o ./Map.o ./PORT_prog.o ./Stepper_prog.o ./Timer_prog.o ./main.o   
+Finished building target: Complete_Motor_Dashboard.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Complete_Motor_Dashboard.elf  >"Complete_Motor_Dashboard.lss"
+Finished building: Complete_Motor_Dashboard.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Complete_Motor_Dashboard.elf  "Complete_Motor_Dashboard.hex"
+Finished building: Complete_Motor_Dashboard.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Complete_Motor_Dashboard.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   18616 bytes (56.8% Full)
+(.text + .data + .bootloader)
+
+Data:        272 bytes (13.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:27:19 Build Finished (took 2s.280ms)
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Logic_Analyser/3LED_assignemnt.c&apos; to &apos;main.c&apos;" description="Rename resource &apos;3LED_assignemnt.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="3LED_assignemnt.c" name="main.c" stamp="1723388299313" updateReferences="true"/>
+</session>

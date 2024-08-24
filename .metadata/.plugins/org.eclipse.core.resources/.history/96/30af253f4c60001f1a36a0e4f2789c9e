@@ -1,0 +1,74 @@
+/*
+ *
+ *
+ * */
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+
+#include "Err_Type.h"
+#include "PORT_interface.h"
+#include "DIO_interface.h"
+
+#include "Timer_interface.h"
+#include "Timer_reg.h"
+#include "EXTI_interface.h"
+#include "GIE_interface.h"
+#include "CLCD_interface.h"
+
+
+uint16 Timer_u16Count;
+void INT0ISR(void);
+
+void main()
+{
+	PORT_voidIint();
+     CLCD_voidInit();
+
+	Timer0_voidInit_PWM();
+	TIMER1_void_Init();
+	EXTI_voidInit();
+	EXTI_u8SetCallBack(INT0,&INT0ISR);
+
+	/* start counting on TIMER 1*/
+
+	GIE_voidEnableGlobal();
+
+	while(1)
+	{
+
+
+	}
+
+
+
+}
+
+
+void INT0ISR(void)
+{
+	static uint8 Counter=0;
+
+	/*Trigger interrupt on rising Edge*/
+
+//	EXTI_u8SetSenseCtrl(INT0, RISING_EDGE);
+	Counter++;
+	if(Counter==1)
+	{
+
+	}
+	if(Counter==2)
+	{
+		Timer_u16Count=TCNT1;//read timer1
+		TCNT1=0;
+	}
+	else if(Counter==3)
+	{
+
+	}
+
+
+
+
+}

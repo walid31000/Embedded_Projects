@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\Oxygen\Desktop\AMGAD SAMIR\interfacing\eclipse project\Logic_Analyser"/>
+		<item value="C:\Users\Oxygen\Desktop\AMGAD SAMIR\interfacing\eclipse project\3_LED_Timer"/>
+		<item value="C:\Users\Oxygen\Desktop\AMGAD SAMIR\interfacing\eclipse project\3 LED_Timer"/>
 		<item value="C:\Users\Oxygen\Desktop\AMGAD SAMIR\interfacing\eclipse project\test"/>
 		<item value="C:\Users\Oxygen\Desktop\AMGAD SAMIR\interfacing\eclipse project\led_test\Debug"/>
 		<item value="C:\Users\Oxygen\Desktop\AMGAD SAMIR 2\interfacing\eclipse project"/>

@@ -1,3 +1,17 @@
+/** ************************************************************
+ * @file   DIO_prog.c
+ * @brief  prototypes of public function API & defines
+ * @author   Walid Megherbi
+ *           <BR>
+ *           <EM>
+ *           Github: https://github.com/walid31000
+ *           </EM>
+ * @version   1.0.0
+ * @date     31/5/2023
+ * @copyright Walid Megherbi
+
+*/
+
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 
@@ -5,6 +19,14 @@
 #include "DIO_reg.h"
 #include "DIO_interface.h"
 
+/**
+ * @brief Sets the direction of a specific pin.
+ *
+ * @param copy_Port The port of the pin.
+ * @param copy_PinNum The pin number.
+ * @param copy_Dir The direction of the pin (input or output).
+ * @return uint8 Status of the operation (OK for success, NOK for failure).
+ */
 
 uint8 DIO_u8SetPinDirection(DIO_Port_t copy_Port,DIO_Pin_t copy_PinNum, DIO_PinDir_t copy_Dir)
 {
@@ -46,6 +68,16 @@ uint8 DIO_u8SetPinDirection(DIO_Port_t copy_Port,DIO_Pin_t copy_PinNum, DIO_PinD
 
 }	
 
+
+
+/**
+ * @brief Sets the direction of all pins in a port.
+ *
+ * @param copy_Port The port whose pins' directions are to be set.
+ * @param copy_u8PortDir The direction for all pins in the port.
+ * @return uint8 Status of the operation (OK for success, NOK for failure).
+ */
+
 uint8 DIO_u8SetPortDirection(DIO_Port_t copy_Port, uint8 copy_u8PortDir)
 {
 	uint8 LocalErrorState=OK;
@@ -64,6 +96,16 @@ uint8 DIO_u8SetPortDirection(DIO_Port_t copy_Port, uint8 copy_u8PortDir)
 	return LocalErrorState;
 }
 
+
+
+/**
+ * @brief Sets the value of a specific pin.
+ *
+ * @param copy_Port The port of the pin.
+ * @param copy_PinNum The pin number.
+ * @param copy_Val The value to set the pin (high or low).
+ * @return uint8 Status of the operation (OK for success, NOK for failure).
+ */
 
 uint8 DIO_u8SetPinValue(DIO_Port_t copy_Port,DIO_Pin_t copy_PinNum, DIO_PinVal_t copy_Val)
 {
@@ -104,7 +146,17 @@ uint8 DIO_u8SetPinValue(DIO_Port_t copy_Port,DIO_Pin_t copy_PinNum, DIO_PinVal_t
 	return LocalErrorState;
 
 
-}	
+}
+
+
+/**
+ * @brief Sets the value of all pins in a port.
+ *
+ * @param copy_Port The port whose pins' values are to be set.
+ * @param copy_u8PortVal The value to set for all pins in the port.
+ * @return uint8 Status of the operation (OK for success, NOK for failure).
+ */
+
 uint8 DIO_u8SetPortValue (DIO_Port_t copy_Port ,uint8 copy_u8PortVal)
 {
 	uint8 LocalErrorState=OK;
@@ -125,6 +177,17 @@ uint8 DIO_u8SetPortValue (DIO_Port_t copy_Port ,uint8 copy_u8PortVal)
 
 
 }	
+
+
+
+/**
+ * @brief Gets the value of a specific pin.
+ *
+ * @param copy_Port The port of the pin.
+ * @param copy_PinNum The pin number.
+ * @param copy_pVal Pointer to store the retrieved value of the pin.
+ * @return uint8 Status of the operation (OK for success, NOK for failure, NULL_PTR for null pointer).
+ */
 
 uint8 DIO_u8GetPinValue (DIO_Port_t copy_Port ,DIO_Pin_t copy_PinNum, DIO_PinVal_t* copy_pVal)
 {
@@ -153,6 +216,17 @@ uint8 DIO_u8GetPinValue (DIO_Port_t copy_Port ,DIO_Pin_t copy_PinNum, DIO_PinVal
 	}
 	return LocalErrorState;
 }
+
+
+
+/**
+ * @brief Toggles the value of a specific pin.
+ *
+ * @param copy_Port The port of the pin.
+ * @param copy_PinNum The pin number.
+ * @return uint8 Status of the operation (OK for success, NOK for failure).
+ */
+
 uint8 DIO_u8TogglePin(DIO_Port_t copy_Port,DIO_Pin_t copy_PinNum)
 {
 	uint8 LocalErrorState=OK;

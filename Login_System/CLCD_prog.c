@@ -241,7 +241,7 @@ CLCD_voidGoToXY(copy_u8XPos, copy_u8YPos);
 CLCD_u8SendString(copy_Chstring);
 }
 
-/*Hamoksha fucnction*/
+/*Hamoksha fucnction (Animation introduction sequence*/
 
 
 

@@ -1,46 +1,20 @@
-01:58:47 **** Incremental Build of configuration Debug for project ADC2 ****
+02:28:06 **** Incremental Build of configuration Debug for project ADC2 ****
 make all 
-Building file: ../GIE_prog.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"GIE_prog.d" -MT"GIE_prog.o" -c -o "GIE_prog.o" "../GIE_prog.c"
-Finished building: ../GIE_prog.c
- 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:12:
-c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-../main.c:24: warning: return type of 'main' is not 'int'
-Finished building: ../main.c
- 
-Building target: ADC2.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,ADC2.map -mmcu=atmega32 -o "ADC2.elf"  ./ADC_prog.o ./DIO_prog.o ./GIE_prog.o ./Map.o ./PORT_prog.o ./main.o   
-Finished building target: ADC2.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S ADC2.elf  >"ADC2.lss"
-Finished building: ADC2.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC2.elf  "ADC2.hex"
-Finished building: ADC2.hex
- 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 ADC2.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    6528 bytes (19.9% Full)
+Program:   12186 bytes (37.2% Full)
 (.text + .data + .bootloader)
 
-Data:         15 bytes (0.7% Full)
+Data:        100 bytes (4.9% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-01:58:58 Build Finished (took 10s.438ms)
+02:28:07 Build Finished (took 1s.482ms)
 

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/ICU/ADC_cfg.h" element2="/ICU/ADC_interface.h" element3="/ICU/ADC_prog.c" element4="/ICU/ADC_prv.h" element5="/ICU/ADC_reg.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1724308218580"/>&#x0A;<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/ICU_HW/EXTI_cfg.h" element2="/ICU_HW/EXTI_interface.h" element3="/ICU_HW/EXTI_prog.c" element4="/ICU_HW/EXTI_prv.h" element5="/ICU_HW/EXTI_reg.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1724392441566"/>
+</session>

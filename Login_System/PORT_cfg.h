@@ -82,7 +82,7 @@
 
 
 #define PORTD_PIN0_INITVAL        PULL_UP
-#define PORTD_PIN1_INITVAL        FLOATING
+#define PORTD_PIN1_INITVAL        PULL_UP
 #define PORTD_PIN2_INITVAL        PULL_UP
 #define PORTD_PIN3_INITVAL        PULL_UP
 #define PORTD_PIN4_INITVAL        PULL_UP

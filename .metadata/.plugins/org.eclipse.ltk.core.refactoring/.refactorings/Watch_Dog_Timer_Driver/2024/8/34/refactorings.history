@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Watch_Dog_Timer_Driver/WDT_cfg&apos; to &apos;WDT_cfg.h&apos;" description="Rename resource &apos;WDT_cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WDT_cfg" name="WDT_cfg.h" stamp="1724510196633" updateReferences="true"/>
+</session>

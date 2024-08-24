@@ -1,0 +1,55 @@
+/*using timer 0 with pwm mode to control Led intensity  and dc motor speed
+ * PWM signal is generated from OC0 pin(PB3)
+ *
+ *
+ * */
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+
+#include "Err_Type.h"
+#include "PORT_interface.h"
+#include "DIO_interface.h"
+#include "ADC_interface.h"
+#include "Timer_interface.h"
+#include "Timer_reg.h"
+#include "EXTI_interface.h"
+#include "GIE_interface.h"
+#include "CLCD_interface.h"
+
+
+
+void SetCallBack(void);
+
+void main()
+{
+	PORT_voidIint();
+     CLCD_voidInit();
+
+	Timer0_voidInit_PWM();
+	EXTI_voidInit();
+	EXTI_u8SetCallBack(INT0,&INT0ISR);
+	GIE_voidEnableGlobal();
+	uint16 Local_u16Digital;
+	while(1)
+	{
+
+
+	}
+
+
+
+}
+
+
+void INT0ISR(void)
+{
+	/*Trigger interrupt on rising Edge*/
+
+//	EXTI_u8SetSenseCtrl(INT0, RISING_EDGE);
+
+    /* start counting on TIMER 1*/
+
+
+}

@@ -1,4 +1,4 @@
-#ifndef EXTI_REG_H
+  #ifndef EXTI_REG_H
 #define EXTI_REG_H
 
 #define   MCUCR                *((volatile uint8*)0x55)   /*MCU ctrl register */

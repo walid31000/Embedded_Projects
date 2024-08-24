@@ -17,19 +17,21 @@
 void main()
 {
 	Led_config_t LED1={DIO_PORTA,DIO_PIN0,ACT_LOW};
-	Led_config_t LED2={DIO_PORTA,DIO_PIN1,ACT_HIGH};
+	Led_config_t LED2={DIO_PORTC,DIO_PIN0,ACT_HIGH};
 	Led_config_t LED3={DIO_PORTA,DIO_PIN2,ACT_HIGH};
 	/*ACTIVATE  internal pull up for pin 0*/
-	DIO_u8SetPinDirection(DIO_PORTA,DIO_PIN0,DIO_PIN_OUTPUT);
+	DIO_u8SetPinDirection(DIO_PORTC,DIO_PIN0,DIO_PIN_OUTPUT);
 	//DIO_u8SetPinValue(DIO_PORTA,DIO_PIN0,DIO_PIN_HIGH);
 
 	while(1)
 	{
 		uint8 counter=1;
-		LED_u8SetON(&LED1);
+		//LED_u8SetON(&LED1);
         //_delay_ms(1000);
         //LED_u8SetOFF(&LED1);
           // _delay_ms(1000);
+		LED_u8ToggleLed(&LED2);
+		_delay_ms(1000);
     /*  while(1)
       {
 		if(counter%1==0)

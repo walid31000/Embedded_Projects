@@ -1,0 +1,18 @@
+20:05:06 **** Build of configuration Debug for project 3 LED_Timer ****
+make all 
+Building file: ../3LED_assignemnt.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"3LED_assignemnt.d" -MT"3LED_assignemnt.o" -c -o "3LED_assignemnt.o" "../3LED_assignemnt.c"
+In file included from ../3LED_assignemnt.c:18:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../3LED_assignemnt.c:54: warning: return type of 'main' is not 'int'
+Finished building: ../3LED_assignemnt.c
+ 
+Building target: 3 LED_Timer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,3 LED_Timer.map -mmcu=atmega32 -o "3 LED_Timer.elf"  ./3LED_assignemnt.o ./DIO_prog.o ./GIE_prog.o ./LED_prog.o ./PORT_prog.o ./Timer_prog.o   
+avr-gcc.exe: LED_Timer.map: No such file or directory
+make: *** [3 LED_Timer.elf] Error 1
+
+20:05:17 Build Finished (took 11s.15ms)
+

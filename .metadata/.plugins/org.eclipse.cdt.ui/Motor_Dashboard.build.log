@@ -1,4 +1,4 @@
-20:52:34 **** Incremental Build of configuration Debug for project Motor_Dashboard ****
+15:59:22 **** Build of configuration Debug for project Motor_Dashboard ****
 make all 
 Building file: ../Stepper_prog.c
 Invoking: AVR Compiler
@@ -26,7 +26,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   15022 bytes (45.8% Full)
+Program:   15064 bytes (46.0% Full)
 (.text + .data + .bootloader)
 
 Data:        192 bytes (9.4% Full)
@@ -36,5 +36,5 @@ Data:        192 bytes (9.4% Full)
 Finished building: sizedummy
  
 
-20:52:40 Build Finished (took 6s.464ms)
+15:59:27 Build Finished (took 5s.209ms)
 

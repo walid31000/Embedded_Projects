@@ -2,6 +2,7 @@ content_assist_disabled_computers=org.eclipse.cdt.ui.textProposalCategory\u0000o
 eclipse.preferences.version=1
 markOccurrences=false
 properties.manage.config.disable=true
+sourceHoverBackgroundColor=255,255,255
 spelling_locale=en_GB
 spelling_locale_initialized=true
 useAnnotationsPrefPage=true

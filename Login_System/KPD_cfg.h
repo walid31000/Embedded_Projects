@@ -7,7 +7,7 @@
 #define  KPD_u8R0_PIN         DIO_PIN2
 #define  KPD_u8R1_PIN         DIO_PIN3
 #define  KPD_u8R2_PIN         DIO_PIN4
-#define  KPD_u8R3_PIN         DIO_PIN5
+#define  KPD_u8R3_PIN         DIO_PIN1
 
 
 

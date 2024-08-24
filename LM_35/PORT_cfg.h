@@ -5,7 +5,7 @@
 /*configure pin directions options:1-INPUT
                                   2-OUTPUT */
 #define PORTA_PIN0_DIR                    INPUT
-#define PORTA_PIN1_DIR                    OUTPUT
+#define PORTA_PIN1_DIR                    INPUT
 #define PORTA_PIN2_DIR                    OUTPUT
 #define PORTA_PIN3_DIR                    OUTPUT
 #define PORTA_PIN4_DIR                    OUTPUT
@@ -50,7 +50,7 @@
                                                             4-FLOATING */
 
 #define PORTA_PIN0_INITVAL        FLOATING
-#define PORTA_PIN1_INITVAL        LOW
+#define PORTA_PIN1_INITVAL        FLOATING
 #define PORTA_PIN2_INITVAL        LOW
 #define PORTA_PIN3_INITVAL        LOW
 #define PORTA_PIN4_INITVAL        LOW

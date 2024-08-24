@@ -1,0 +1,68 @@
+18:57:43 **** Incremental Build of configuration Debug for project Timer ****
+make all 
+Building file: ../3LED_assignemnt.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"3LED_assignemnt.d" -MT"3LED_assignemnt.o" -c -o "3LED_assignemnt.o" "../3LED_assignemnt.c"
+In file included from ../3LED_assignemnt.c:18:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../3LED_assignemnt.c:54: warning: return type of 'main' is not 'int'
+Finished building: ../3LED_assignemnt.c
+ 
+Building file: ../DIO_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_prog.d" -MT"DIO_prog.o" -c -o "DIO_prog.o" "../DIO_prog.c"
+Finished building: ../DIO_prog.c
+ 
+Building file: ../GIE_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"GIE_prog.d" -MT"GIE_prog.o" -c -o "GIE_prog.o" "../GIE_prog.c"
+Finished building: ../GIE_prog.c
+ 
+Building file: ../LED_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LED_prog.d" -MT"LED_prog.o" -c -o "LED_prog.o" "../LED_prog.c"
+In file included from ../LED_prog.c:4:
+c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../LED_prog.c
+ 
+Building file: ../PORT_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_prog.d" -MT"PORT_prog.o" -c -o "PORT_prog.o" "../PORT_prog.c"
+Finished building: ../PORT_prog.c
+ 
+Building file: ../Timer_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Timer_prog.d" -MT"Timer_prog.o" -c -o "Timer_prog.o" "../Timer_prog.c"
+Finished building: ../Timer_prog.c
+ 
+Building target: Timer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Timer.map -mmcu=atmega32 -o "Timer.elf"  ./3LED_assignemnt.o ./DIO_prog.o ./GIE_prog.o ./LED_prog.o ./PORT_prog.o ./Timer_prog.o   
+Finished building target: Timer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Timer.elf  >"Timer.lss"
+Finished building: Timer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Timer.elf  "Timer.hex"
+Finished building: Timer.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Timer.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3220 bytes (9.8% Full)
+(.text + .data + .bootloader)
+
+Data:         14 bytes (0.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:57:49 Build Finished (took 6s.223ms)
+
