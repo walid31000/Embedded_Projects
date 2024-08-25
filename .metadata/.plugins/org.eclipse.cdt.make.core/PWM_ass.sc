@@ -122,7 +122,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
-<definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 <instance id="de.innot.avreclipse.configuration.app.release.1065116387;de.innot.avreclipse.configuration.app.release.1065116387.;de.innot.avreclipse.tool.compiler.winavr.app.release.1482638752;de.innot.avreclipse.compiler.winavr.input.1015123349">
@@ -247,7 +247,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
-<definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 </scannerInfo>

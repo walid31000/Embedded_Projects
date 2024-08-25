@@ -1,12 +1,9 @@
-11:23:21 **** Incremental Build of configuration Debug for project WDT ****
+11:45:40 **** Incremental Build of configuration Debug for project WDT ****
 make all 
-Building file: ../main.c
+Building file: ../PORT_prog.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:12:
-c:/users/oxygen/desktop/imt embedded/imt tools/sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-../main.c:20: warning: return type of 'main' is not 'int'
-Finished building: ../main.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_prog.d" -MT"PORT_prog.o" -c -o "PORT_prog.o" "../PORT_prog.c"
+Finished building: ../PORT_prog.c
  
 Building target: WDT.elf
 Invoking: AVR C Linker
@@ -27,7 +24,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    5394 bytes (16.5% Full)
+Program:    5396 bytes (16.5% Full)
 (.text + .data + .bootloader)
 
 Data:          8 bytes (0.4% Full)
@@ -37,5 +34,5 @@ Data:          8 bytes (0.4% Full)
 Finished building: sizedummy
  
 
-11:23:23 Build Finished (took 1s.479ms)
+11:45:42 Build Finished (took 2s.824ms)
 

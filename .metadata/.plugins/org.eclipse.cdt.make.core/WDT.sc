@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
-<instance id="de.innot.avreclipse.configuration.app.debug.333165872;de.innot.avreclipse.configuration.app.debug.333165872.;de.innot.avreclipse.tool.compiler.winavr.app.debug.1788115032;de.innot.avreclipse.compiler.winavr.input.916006170">
+<instance id="de.innot.avreclipse.configuration.app.debug.1875291042;de.innot.avreclipse.configuration.app.debug.1875291042.;de.innot.avreclipse.tool.compiler.winavr.app.debug.1799199189;de.innot.avreclipse.compiler.winavr.input.487561665">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="c:\users\oxygen\desktop\imt embedded\imt tools\sdk\imt_sdk_win_64\winavr\bin\../lib/gcc/avr/4.3.3/include"/>
 <includePath path="c:\users\oxygen\desktop\imt embedded\imt tools\sdk\imt_sdk_win_64\winavr\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
@@ -122,10 +122,10 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
-<definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
-<instance id="de.innot.avreclipse.configuration.app.release.1065116387;de.innot.avreclipse.configuration.app.release.1065116387.;de.innot.avreclipse.tool.compiler.winavr.app.release.1482638752;de.innot.avreclipse.compiler.winavr.input.1015123349">
+<instance id="de.innot.avreclipse.configuration.app.release.1432521506;de.innot.avreclipse.configuration.app.release.1432521506.;de.innot.avreclipse.tool.compiler.winavr.app.release.986384817;de.innot.avreclipse.compiler.winavr.input.1675133340">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="c:\users\oxygen\desktop\imt embedded\imt tools\sdk\imt_sdk_win_64\winavr\bin\../lib/gcc/avr/4.3.3/include"/>
 <includePath path="c:\users\oxygen\desktop\imt embedded\imt tools\sdk\imt_sdk_win_64\winavr\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
@@ -247,7 +247,7 @@
 <definedSymbol symbol="__AVR_MEGA__=1"/>
 <definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
-<definedSymbol symbol="F_CPU=16000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 </scannerInfo>
